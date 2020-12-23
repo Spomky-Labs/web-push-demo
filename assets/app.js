@@ -1,14 +1,4 @@
-/*
- * Welcome to your app's main JavaScript file!
- *
- * We recommend including the built version of this JavaScript file
- * (and its CSS file) in your base layout (base.html.twig).
- */
-
-// any CSS you import will output into a single css file (app.css in this case)
 import './styles/app.css';
-
-// start the Stimulus application
 import './bootstrap';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -47,8 +37,6 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
     }
 
-    // Check the current Notification permission.
-    // If its denied, the button should appears as such, until the user changes the permission manually
     if (Notification.permission === 'denied') {
         console.warn('Notifications are denied by the user');
         changePushButtonState('incompatible');
@@ -140,18 +128,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     applicationServerKey: urlBase64ToUint8Array(applicationServerKey),
                 })
             )
-            .then(subscription => subscription && changePushButtonState('enabled')) // update your UI
+            .then(subscription => subscription && changePushButtonState('enabled'))
             .catch(e => {
                 if (Notification.permission === 'denied') {
-                    // The user denied the notification permission which
-                    // means we failed to subscribe and the user will need
-                    // to manually change the notification permission to
-                    // subscribe to push messages
                     console.warn('Notifications are denied by the user.');
                     changePushButtonState('incompatible');
                 } else {
-                    // A problem occurred with the subscription; common reasons
-                    // include network errors or the user skipped the permission
                     console.error('Impossible to subscribe to push notifications', e);
                     changePushButtonState('disabled');
                 }
@@ -166,7 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 return subscription;
             })
-            .then(subscription => subscription && changePushButtonState('enabled')) // Set your UI to show they have subscribed for push messages
+            .then(subscription => subscription && changePushButtonState('enabled'))
             .catch(e => {
                 console.error('Error when updating the subscription', e);
             });
@@ -174,8 +156,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function push_unsubscribe() {
         changePushButtonState('computing');
-
-        // To unsubscribe from push messaging, you need to get the subscription object
         navigator.serviceWorker.ready
             .then(serviceWorkerRegistration => serviceWorkerRegistration.pushManager.getSubscription())
             .then(subscription => {
@@ -189,20 +169,11 @@ document.addEventListener('DOMContentLoaded', () => {
             .then(subscription => subscription.unsubscribe())
             .then(() => changePushButtonState('disabled'))
             .catch(e => {
-                // We failed to unsubscribe, this can lead to
-                // an unusual state, so  it may be best to remove
-                // the users data from your data store and
-                // inform the user that you have done so
                 console.error('Error when unsubscribing the user', e);
                 changePushButtonState('disabled');
             });
     }
 
-    /**
-     * START send_push_notification
-     * this part handles the button that calls the endpoint that triggers a notification
-     * in the real world, you wouldn't need this, because notifications are typically sent from backend logic
-     */
 
     const sendPushButton = document.querySelector('#send-push-button');
     if (!sendPushButton) {
@@ -217,16 +188,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     alert('Please enable push notifications');
                     return;
                 }
-
-                const contentEncoding = (PushManager.supportedContentEncodings || ['aesgcm'])[0];
+                const contentEncodings = PushManager.supportedContentEncodings || ['aesgcm'];
                 const jsonSubscription = subscription.toJSON();
                 fetch('/notify', {
                     method: 'POST',
-                    body: JSON.stringify(Object.assign(jsonSubscription, { contentEncoding })),
+                    body: JSON.stringify(Object.assign(jsonSubscription, { contentEncodings })),
                 });
             })
     );
-    /**
-     * END send_push_notification
-     */
 });

@@ -76,8 +76,5 @@
             "allow-contrib": false,
             "require": "5.2.*"
         }
-    },
-    "require-dev": {
-        "symfony/debug-bundle": "5.2.*"
     }
 }
