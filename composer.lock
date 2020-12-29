@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "29c57d97b83ed00ae718d7704b3dde7f",
+    "content-hash": "3e38a7a6b9ba85fb960e4c50489509c2",
     "packages": [
         {
             "name": "beberlei/assert",
@@ -1586,16 +1586,16 @@
         },
         {
             "name": "spomky-labs/web-push",
-            "version": "dev-master",
+            "version": "v1.0.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Spomky-Labs/web-push.git",
-                "reference": "aa0ba40701c3af2654a299a71feb62b3b9f01a14"
+                "reference": "34bc578d10b85846c9e646016513e9ac2d90d913"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Spomky-Labs/web-push/zipball/aa0ba40701c3af2654a299a71feb62b3b9f01a14",
-                "reference": "aa0ba40701c3af2654a299a71feb62b3b9f01a14",
+                "url": "https://api.github.com/repos/Spomky-Labs/web-push/zipball/34bc578d10b85846c9e646016513e9ac2d90d913",
+                "reference": "34bc578d10b85846c9e646016513e9ac2d90d913",
                 "shasum": ""
             },
             "require": {
@@ -1603,14 +1603,14 @@
                 "ext-json": "*",
                 "php": ">=7.4",
                 "psr/cache": "^1.0",
-                "psr/http-client": "^1.0",
-                "psr/http-factory": "^1.0",
-                "psr/http-message": "^1.0",
+                "psr/http-client": "^1.0.1",
+                "psr/http-factory": "^1.0.1",
+                "psr/http-message": "^1.0.1",
                 "psr/log": "^1.1",
-                "symfony/config": "^5.1",
-                "symfony/dependency-injection": "^5.1",
-                "symfony/framework-bundle": "^5.1",
-                "thecodingmachine/safe": "^1.1"
+                "symfony/config": "^5.2.1",
+                "symfony/dependency-injection": "^5.2.1",
+                "symfony/framework-bundle": "^5.2.1",
+                "thecodingmachine/safe": "^1.3"
             },
             "replace": {
                 "spomky-labs/web-push-bundle": "self.version",
@@ -1620,7 +1620,10 @@
                 "friendsofphp/php-cs-fixer": "^2.16",
                 "infection/infection": "^0.20",
                 "lcobucci/jwt": "^4.0",
+                "matthiasnoback/symfony-config-test": "^4.2",
                 "nyholm/psr7": "^1.3",
+                "php-http/client-common": "^2.0",
+                "php-http/discovery": "^1.13",
                 "php-http/mock-client": "^1.4",
                 "phpbench/phpbench": "^1.0.0-alpha2",
                 "phpstan/phpstan": "^0.12.46",
@@ -1629,12 +1632,13 @@
                 "phpstan/phpstan-phpunit": "^0.12",
                 "phpstan/phpstan-strict-rules": "^0.12",
                 "phpunit/phpunit": "^9.3",
+                "rector/rector": "^0.9.1",
                 "roave/security-advisories": "dev-latest",
                 "sensiolabs/security-checker": "^6.0",
-                "symfony/cache": "^5.1",
-                "symfony/http-client": "^5.2",
-                "symfony/phpunit-bridge": "^5.1",
-                "symfony/var-dumper": "^5.2",
+                "symfony/cache": "^5.2.1",
+                "symfony/http-client": "^5.2.1",
+                "symfony/phpunit-bridge": "^5.2.1",
+                "symfony/var-dumper": "^5.2.1",
                 "symfony/yaml": "^4.4|^5.0",
                 "thecodingmachine/phpstan-safe-rule": "^1.0",
                 "web-token/jwt-signature-algorithm-ecdsa": "^2.0"
@@ -1677,7 +1681,7 @@
             ],
             "support": {
                 "issues": "https://github.com/Spomky-Labs/web-push/issues",
-                "source": "https://github.com/Spomky-Labs/web-push/tree/master"
+                "source": "https://github.com/Spomky-Labs/web-push/tree/v1.0"
             },
             "funding": [
                 {
@@ -1689,7 +1693,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2020-12-23T22:25:09+00:00"
+            "time": "2020-12-29T12:57:14+00:00"
         },
         {
             "name": "symfony/asset",

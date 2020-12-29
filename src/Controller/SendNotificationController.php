@@ -33,7 +33,9 @@ final class SendNotificationController
             ->addAction(Action::create('accept', 'Accept'))
             ->addAction(Action::create('cancel', 'Cancel'))
         ;
-        $notification = Notification::create()->withPayload($message->toString());
+        $notification = Notification::create()
+            ->lowUrgency()
+            ->withPayload($message->toString());
         $subscription = Subscription::createFromString($request->getContent());
 
         $statusReport = $this->webpushService->send($notification, $subscription);

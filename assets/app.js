@@ -2,8 +2,7 @@ import './styles/app.css';
 import './bootstrap';
 
 document.addEventListener('DOMContentLoaded', () => {
-    const applicationServerKey =
-        'BB4W1qfBi7MF_Lnrc6i2oL-glAuKF4kevy9T0k2vyKV4qvuBrN3T6o9-7-NR3mKHwzDXzD3fe7XvIqIU1iADpGQ';
+    const applicationServerKey = 'BB4W1qfBi7MF_Lnrc6i2oL-glAuKF4kevy9T0k2vyKV4qvuBrN3T6o9-7-NR3mKHwzDXzD3fe7XvIqIU1iADpGQ';
     let isPushEnabled = false;
 
     const pushButton = document.querySelector('#push-subscription-button');
@@ -13,9 +12,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     pushButton.addEventListener('click', function() {
         if (isPushEnabled) {
-            push_unsubscribe();
+            pushUnsubscribe();
         } else {
-            push_subscribe();
+            pushSubscribe();
         }
     });
 
@@ -117,7 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    function push_subscribe() {
+    function pushSubscribe() {
         changePushButtonState('computing');
 
         return checkNotificationPermission()
@@ -154,7 +153,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
     }
 
-    function push_unsubscribe() {
+    function pushUnsubscribe() {
         changePushButtonState('computing');
         navigator.serviceWorker.ready
             .then(serviceWorkerRegistration => serviceWorkerRegistration.pushManager.getSubscription())
@@ -188,11 +187,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     alert('Please enable push notifications');
                     return;
                 }
-                const contentEncodings = PushManager.supportedContentEncodings || ['aesgcm'];
+                const supportedContentEncodings = PushManager.supportedContentEncodings || ['aesgcm'];
                 const jsonSubscription = subscription.toJSON();
                 fetch('/notify', {
                     method: 'POST',
-                    body: JSON.stringify(Object.assign(jsonSubscription, { contentEncodings })),
+                    body: JSON.stringify(Object.assign(jsonSubscription, { supportedContentEncodings })),
                 });
             })
     );
