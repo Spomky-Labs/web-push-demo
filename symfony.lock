@@ -26,6 +26,9 @@
     "fgrosse/phpasn1": {
         "version": "v2.2.0"
     },
+    "friendsofphp/proxy-manager-lts": {
+        "version": "v1.0.3"
+    },
     "laminas/laminas-code": {
         "version": "3.5.1"
     },
@@ -94,6 +97,12 @@
     },
     "spomky-labs/web-push": {
         "version": "dev-master"
+    },
+    "spomky-labs/web-push-bundle": {
+        "version": "v1.0.0"
+    },
+    "spomky-labs/web-push-lib": {
+        "version": "v1.0.0"
     },
     "symfony/asset": {
         "version": "v5.2.1"

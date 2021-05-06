@@ -1,8 +1,8 @@
 webpush:
   vapid:
     enabled: true
-    subject: 'https://localhost:8000'
+    subject: '%env(APP_ROOT_URI)%'
     web_token:
       enabled: true
-      public_key: 'BB4W1qfBi7MF_Lnrc6i2oL-glAuKF4kevy9T0k2vyKV4qvuBrN3T6o9-7-NR3mKHwzDXzD3fe7XvIqIU1iADpGQ'
-      private_key: 'C40jLFSa5UWxstkFvdwzT3eHONE2FIJSEsVIncSCAqU'
+      public_key: '%env(VAPID_PUBLIC_KEY)%'
+      private_key: '%env(VAPID_PRIVATE_KEY)%'
