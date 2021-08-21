@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "82f7f117e92c714056419a22a8b018f8",
+    "content-hash": "3c964987a2b5edaf8d48b1c4707e37a5",
     "packages": [
         {
             "name": "beberlei/assert",
@@ -1443,93 +1443,67 @@
             "time": "2020-11-03T09:10:25+00:00"
         },
         {
-            "name": "spomky-labs/web-push-bundle",
-            "version": "v1.1.x-dev",
+            "name": "spomky-labs/web-push",
+            "version": "v2.0.x-dev",
             "source": {
                 "type": "git",
-                "url": "https://github.com/Spomky-Labs/web-push-bundle.git",
-                "reference": "ae5bf32bc57dc451517a85bb5064f2299d5f9a79"
+                "url": "https://github.com/Spomky-Labs/web-push.git",
+                "reference": "8c518a4c247c3977e59f2bda0480aeab5a0ed9d4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Spomky-Labs/web-push-bundle/zipball/ae5bf32bc57dc451517a85bb5064f2299d5f9a79",
-                "reference": "ae5bf32bc57dc451517a85bb5064f2299d5f9a79",
-                "shasum": ""
-            },
-            "require": {
-                "spomky-labs/web-push-lib": "^1.0",
-                "symfony/config": "^5.2.1",
-                "symfony/dependency-injection": "^5.2.1",
-                "symfony/framework-bundle": "^5.2.1"
-            },
-            "type": "symfony-bundle",
-            "autoload": {
-                "psr-4": {
-                    "WebPush\\Bundle\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Spomky-Labs",
-                    "homepage": "https://github.com/Spomky-Labs"
-                },
-                {
-                    "name": "All contributors",
-                    "homepage": "https://github.com/Spomky-Labs/web-push-bundle/contributors"
-                }
-            ],
-            "description": "Web-Push bundle for Symfony",
-            "homepage": "https://github.com/Spomky-Labs/web-push",
-            "keywords": [
-                "Push API",
-                "WebPush",
-                "notifications",
-                "push",
-                "web"
-            ],
-            "support": {
-                "source": "https://github.com/Spomky-Labs/web-push-bundle/tree/v1.1"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/Spomky",
-                    "type": "github"
-                },
-                {
-                    "url": "https://www.patreon.com/FlorentMorselli",
-                    "type": "patreon"
-                }
-            ],
-            "time": "2021-06-30T13:59:02+00:00"
-        },
-        {
-            "name": "spomky-labs/web-push-lib",
-            "version": "v1.1.x-dev",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Spomky-Labs/web-push-lib.git",
-                "reference": "6a1f11da0154208f61007292c36241965f044e21"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Spomky-Labs/web-push-lib/zipball/6a1f11da0154208f61007292c36241965f044e21",
-                "reference": "6a1f11da0154208f61007292c36241965f044e21",
+                "url": "https://api.github.com/repos/Spomky-Labs/web-push/zipball/8c518a4c247c3977e59f2bda0480aeab5a0ed9d4",
+                "reference": "8c518a4c247c3977e59f2bda0480aeab5a0ed9d4",
                 "shasum": ""
             },
             "require": {
                 "beberlei/assert": "^3.2",
                 "ext-json": "*",
-                "php": ">=7.4",
+                "php": ">=8.0",
                 "psr/cache": "^1.0",
                 "psr/http-client": "^1.0.1",
                 "psr/http-factory": "^1.0.1",
                 "psr/http-message": "^1.0.1",
                 "psr/log": "^1.1",
-                "thecodingmachine/safe": "^1.3"
+                "symfony/config": "^5.2.1",
+                "symfony/dependency-injection": "^5.2.1",
+                "symfony/framework-bundle": "^5.2.1"
+            },
+            "replace": {
+                "spomky-labs/web-push-bundle": "self.version",
+                "spomky-labs/web-push-lib": "self.version"
+            },
+            "require-dev": {
+                "doctrine/dbal": "^2.9|^3.0",
+                "doctrine/doctrine-bundle": "^2.0",
+                "doctrine/doctrine-fixtures-bundle": "^3.4",
+                "doctrine/orm": "^2.6",
+                "ekino/phpstan-banned-code": "^0.5.0",
+                "friendsofphp/php-cs-fixer": "^3.0",
+                "infection/infection": "^0.24",
+                "lcobucci/jwt": "^4.0",
+                "matthiasnoback/symfony-config-test": "^4.2",
+                "matthiasnoback/symfony-dependency-injection-test": "^4.2",
+                "nyholm/psr7": "^1.3",
+                "php-http/client-common": "^2.0",
+                "php-http/discovery": "^1.13",
+                "php-http/mock-client": "^1.4",
+                "phpbench/phpbench": "^1.0.0-alpha2",
+                "phpstan/phpstan": "^0.12.46",
+                "phpstan/phpstan-beberlei-assert": "^0.12",
+                "phpstan/phpstan-deprecation-rules": "^0.12",
+                "phpstan/phpstan-phpunit": "^0.12",
+                "phpstan/phpstan-strict-rules": "^0.12",
+                "phpunit/phpunit": "^9.3",
+                "rector/rector": "^0.11",
+                "roave/security-advisories": "dev-latest",
+                "symfony/cache": "^5.2.1",
+                "symfony/http-client": "^5.2.1",
+                "symfony/monolog-bundle": "^3.5",
+                "symfony/phpunit-bridge": "^5.2.1",
+                "symfony/var-dumper": "^5.2.1",
+                "symfony/yaml": "^4.4|^5.0",
+                "web-token/jwt-signature-algorithm-ecdsa": "^2.0"
             },
             "suggest": {
                 "ext-mbstring": "Mandatory when using Payload or VAPID extensions",
@@ -1538,10 +1512,11 @@
                 "psr/log-implementation": "Recommended to receive logs from the library",
                 "web-token/jwt-signature-algorithm-ecdsa": "Mandatory if you want to use VAPID using web-token/jwt-framework"
             },
-            "type": "library",
+            "type": "bundle",
             "autoload": {
                 "psr-4": {
-                    "WebPush\\": ""
+                    "WebPush\\": "src/library/",
+                    "WebPush\\Bundle\\": "src/bundle/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -1551,24 +1526,23 @@
             "authors": [
                 {
                     "name": "Spomky-Labs",
-                    "homepage": "https://github.com/Spomky-Labs"
-                },
-                {
-                    "name": "All contributors",
-                    "homepage": "https://github.com/Spomky-Labs/web-push-lib/contributors"
+                    "homepage": "https://github.com/spomky-labs"
                 }
             ],
-            "description": "Web-Push library for PHP",
+            "description": "Web-Push framework for PHP",
             "homepage": "https://github.com/spomky-labs/web-push",
             "keywords": [
                 "Push API",
                 "WebPush",
+                "bundle",
                 "notifications",
                 "push",
+                "symfony",
                 "web"
             ],
             "support": {
-                "source": "https://github.com/Spomky-Labs/web-push-lib/tree/v1.1"
+                "issues": "https://github.com/Spomky-Labs/web-push/issues",
+                "source": "https://github.com/Spomky-Labs/web-push/tree/v2.0"
             },
             "funding": [
                 {
@@ -1580,7 +1554,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2021-08-21T19:55:35+00:00"
+            "time": "2021-08-21T20:27:26+00:00"
         },
         {
             "name": "symfony/asset",
@@ -5197,145 +5171,6 @@
             "time": "2021-07-29T06:18:06+00:00"
         },
         {
-            "name": "thecodingmachine/safe",
-            "version": "v1.3.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/thecodingmachine/safe.git",
-                "reference": "a8ab0876305a4cdaef31b2350fcb9811b5608dbc"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/thecodingmachine/safe/zipball/a8ab0876305a4cdaef31b2350fcb9811b5608dbc",
-                "reference": "a8ab0876305a4cdaef31b2350fcb9811b5608dbc",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=7.2"
-            },
-            "require-dev": {
-                "phpstan/phpstan": "^0.12",
-                "squizlabs/php_codesniffer": "^3.2",
-                "thecodingmachine/phpstan-strict-rules": "^0.12"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "0.1-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Safe\\": [
-                        "lib/",
-                        "deprecated/",
-                        "generated/"
-                    ]
-                },
-                "files": [
-                    "deprecated/apc.php",
-                    "deprecated/libevent.php",
-                    "deprecated/mssql.php",
-                    "deprecated/stats.php",
-                    "lib/special_cases.php",
-                    "generated/apache.php",
-                    "generated/apcu.php",
-                    "generated/array.php",
-                    "generated/bzip2.php",
-                    "generated/calendar.php",
-                    "generated/classobj.php",
-                    "generated/com.php",
-                    "generated/cubrid.php",
-                    "generated/curl.php",
-                    "generated/datetime.php",
-                    "generated/dir.php",
-                    "generated/eio.php",
-                    "generated/errorfunc.php",
-                    "generated/exec.php",
-                    "generated/fileinfo.php",
-                    "generated/filesystem.php",
-                    "generated/filter.php",
-                    "generated/fpm.php",
-                    "generated/ftp.php",
-                    "generated/funchand.php",
-                    "generated/gmp.php",
-                    "generated/gnupg.php",
-                    "generated/hash.php",
-                    "generated/ibase.php",
-                    "generated/ibmDb2.php",
-                    "generated/iconv.php",
-                    "generated/image.php",
-                    "generated/imap.php",
-                    "generated/info.php",
-                    "generated/ingres-ii.php",
-                    "generated/inotify.php",
-                    "generated/json.php",
-                    "generated/ldap.php",
-                    "generated/libxml.php",
-                    "generated/lzf.php",
-                    "generated/mailparse.php",
-                    "generated/mbstring.php",
-                    "generated/misc.php",
-                    "generated/msql.php",
-                    "generated/mysql.php",
-                    "generated/mysqli.php",
-                    "generated/mysqlndMs.php",
-                    "generated/mysqlndQc.php",
-                    "generated/network.php",
-                    "generated/oci8.php",
-                    "generated/opcache.php",
-                    "generated/openssl.php",
-                    "generated/outcontrol.php",
-                    "generated/password.php",
-                    "generated/pcntl.php",
-                    "generated/pcre.php",
-                    "generated/pdf.php",
-                    "generated/pgsql.php",
-                    "generated/posix.php",
-                    "generated/ps.php",
-                    "generated/pspell.php",
-                    "generated/readline.php",
-                    "generated/rpminfo.php",
-                    "generated/rrd.php",
-                    "generated/sem.php",
-                    "generated/session.php",
-                    "generated/shmop.php",
-                    "generated/simplexml.php",
-                    "generated/sockets.php",
-                    "generated/sodium.php",
-                    "generated/solr.php",
-                    "generated/spl.php",
-                    "generated/sqlsrv.php",
-                    "generated/ssdeep.php",
-                    "generated/ssh2.php",
-                    "generated/stream.php",
-                    "generated/strings.php",
-                    "generated/swoole.php",
-                    "generated/uodbc.php",
-                    "generated/uopz.php",
-                    "generated/url.php",
-                    "generated/var.php",
-                    "generated/xdiff.php",
-                    "generated/xml.php",
-                    "generated/xmlrpc.php",
-                    "generated/yaml.php",
-                    "generated/yaz.php",
-                    "generated/zip.php",
-                    "generated/zlib.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "PHP core functions that throw exceptions instead of returning FALSE on error",
-            "support": {
-                "issues": "https://github.com/thecodingmachine/safe/issues",
-                "source": "https://github.com/thecodingmachine/safe/tree/v1.3.3"
-            },
-            "time": "2020-10-28T17:51:34+00:00"
-        },
-        {
             "name": "twig/twig",
             "version": "v3.3.2",
             "source": {
@@ -5695,13 +5530,12 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "spomky-labs/web-push-lib": 20,
-        "spomky-labs/web-push-bundle": 20
+        "spomky-labs/web-push": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=7.4",
+        "php": ">=8.0",
         "ext-ctype": "*",
         "ext-iconv": "*"
     },

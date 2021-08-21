@@ -98,12 +98,6 @@
     "spomky-labs/web-push": {
         "version": "dev-master"
     },
-    "spomky-labs/web-push-bundle": {
-        "version": "v1.0.0"
-    },
-    "spomky-labs/web-push-lib": {
-        "version": "v1.0.0"
-    },
     "symfony/asset": {
         "version": "v5.2.1"
     },
@@ -341,9 +335,6 @@
     },
     "symfony/yaml": {
         "version": "v5.2.1"
-    },
-    "thecodingmachine/safe": {
-        "version": "v1.3.3"
     },
     "twig/twig": {
         "version": "v3.1.1"

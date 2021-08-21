@@ -2,8 +2,8 @@
 
 namespace App\Controller;
 
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use WebPush\Action;
 use WebPush\Message;
@@ -24,9 +24,16 @@ final class SendNotificationController
     /**
      * @Route(path="/notify", name="app_notify")
      */
-    public function __invoke(Request $request): Response
+    public function __invoke(Request $request): JsonResponse
     {
-        $message = Message::create('My super Application', 'Hello World!', true)
+        $message = Message::create('My super Application', 'Hello World!')
+            ->ltr()
+            ->renotify()
+            ->vibrate(200, 300, 200, 300)
+            ->withImage('https://placebear.com/1024/512')
+            ->withIcon('https://placebear.com/512/512')
+            ->withData(['foo' => 'BAR'])
+            ->withTag('tag1')
             ->withLang('en-GB')
             ->interactionRequired()
             ->withTimestamp(time())
@@ -39,12 +46,14 @@ final class SendNotificationController
         $subscription = Subscription::createFromString($request->getContent());
 
         $statusReport = $this->webpushService->send($notification, $subscription);
-        $statusResponse = $statusReport->getResponse();
 
-        return  new Response(
-            $statusResponse->getBody()->getContents(),
-            $statusResponse->getStatusCode(),
-            $statusResponse->getHeaders()
+        return new JsonResponse([
+            'error' => !$statusReport->isSuccess(),
+            'links' => $statusReport->getLinks(),
+            'location' => $statusReport->getLocation(),
+            'expired' => $statusReport->isSubscriptionExpired(),
+        ],
+            $statusReport->isSuccess() ? 200: 400,
         );
     }
 }
