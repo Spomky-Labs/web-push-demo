@@ -26,7 +26,7 @@ final class SendNotificationController
      */
     public function __invoke(Request $request): Response
     {
-        $message = Message::create('Hello World!')
+        $message = Message::create('My super Application', 'Hello World!', true)
             ->withLang('en-GB')
             ->interactionRequired()
             ->withTimestamp(time())
