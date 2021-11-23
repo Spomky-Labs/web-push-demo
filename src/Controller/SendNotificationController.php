@@ -27,21 +27,22 @@ final class SendNotificationController
     public function __invoke(Request $request): JsonResponse
     {
         $message = Message::create('My super Application', 'Hello World!')
-            ->ltr()
-            ->renotify()
+            //->rtl()
+            //->renotify()
             ->vibrate(200, 300, 200, 300)
             ->withImage('https://placebear.com/1024/512')
             ->withIcon('https://placebear.com/512/512')
-            ->withData(['foo' => 'BAR'])
-            ->withTag('tag1')
-            ->withLang('en-GB')
-            ->interactionRequired()
+            ->withBadge('https://placebear.com/256/256')
+            //->withData(['foo' => 'BAR'])
+            //->withTag('tag1')
+            ->withLang('fr_FR')
+            //->mute()
             ->withTimestamp(time())
             ->addAction(Action::create('accept', 'Accept'))
             ->addAction(Action::create('cancel', 'Cancel'))
         ;
         $notification = Notification::create()
-            ->lowUrgency()
+            //->highUrgency()
             ->withPayload($message->toString());
         $subscription = Subscription::createFromString($request->getContent());
 
