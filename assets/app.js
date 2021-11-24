@@ -1,5 +1,15 @@
-import './styles/app.css';
+import './styles/app.scss';
 import './bootstrap';
+
+const $ = require('jquery');
+require('bootstrap');
+require('bootstrap-star-rating');
+require('bootstrap-star-rating/css/star-rating.css');
+require('bootstrap-star-rating/themes/krajee-svg/theme.css');
+
+$(document).ready(function() {
+    $('[data-toggle="popover"]').popover();
+});
 
 document.addEventListener('DOMContentLoaded', () => {
     const applicationServerKey = 'BB4W1qfBi7MF_Lnrc6i2oL-glAuKF4kevy9T0k2vyKV4qvuBrN3T6o9-7-NR3mKHwzDXzD3fe7XvIqIU1iADpGQ';

@@ -1,20 +1,70 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Web Push Demo!{% endblock %}</title>
-        {% block stylesheets %}
-            {{ encore_entry_link_tags('app') }}
-        {% endblock %}
-    </head>
-    <body>
-        {% block body %}
-            <h1>Web Push Demo</h1>
-            <button id="push-subscription-button">Push notifications !</button>
-            <button id="send-push-button">Send a push notification</button>
-        {% endblock %}
-        {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
-        {% endblock %}
-    </body>
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Seb Push demo application">
+    <meta name="author" content="Florent Morselli, from Spomky-Labs">
+    <title>Starter Template · Bootstrap v5.1</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/starter-template/">
+
+    <title>{% block title %}Web Push Demo!{% endblock %}</title>
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('app') }}
+    {% endblock %}
+</head>
+<body>
+
+<div class="col-lg-8 mx-auto p-3 py-md-5">
+    <header class="d-flex align-items-center pb-3 mb-5 border-bottom">
+        <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
+            <span class="fs-4">Web Push Demo 📨</span>
+        </a>
+    </header>
+    <main>
+        <h1>Get started with Web Push Notifications</h1>
+        <p class="fs-5 col-md-8">Quickly and easily get started with Web Push Notification using the Spomky-Labs’ library or Symfony bundle</p>
+        <div class="mb-5">
+            <a href="https://github.com/Spomky-Labs/web-push" rel="noreferrer noopener nofollow" target="_blank" class="btn btn-primary btn-lg px-4">View the source code</a>
+        </div>
+
+        <hr class="col-3 col-md-2 mb-5">
+
+        <div class="row g-5">
+            <div class="col-md-6">
+                <h2>Before</h2>
+                <p>
+                    Web Push Notifications shall be explicitly allowed by the end user.
+                    Please click on the dedicated button below to enable that feature.
+                    <br>
+                    It can can disabled at any time!
+                </p>
+                <button class="btn btn-info btn-lg px-4" id="push-subscription-button">Push notifications !</button>
+            </div>
+
+            <div class="col-md-6">
+                <h2>After</h2>
+                <p>
+                    When enabled, the server will be able to receive the associated subscription dataset
+                    and send you notifications.
+                    <br>
+                    For this demo, <em>nothing is stored on the server side</em>. The button below simulates a fully featured notification
+                    you will show on your device.
+                    <br>
+                    <strong>Just hit the button to give it a try!</strong>
+                </p>
+                <button class="btn btn-success btn-lg px-4" id="send-push-button">Send a push notification</button>
+            </div>
+        </div>
+    </main>
+    <footer class="pt-5 my-5 text-muted border-top">
+        Made with ❤️ by Spomky-Labs &middot; &copy; 2021
+    </footer>
+</div>
+{% block javascripts %}
+    {{ encore_entry_script_tags('app') }}
+{% endblock %}
+</body>
 </html>
