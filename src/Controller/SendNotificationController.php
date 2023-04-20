@@ -1,7 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Controller;
 
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -11,23 +14,18 @@ use WebPush\Notification;
 use WebPush\Subscription;
 use WebPush\WebPush;
 
-final class SendNotificationController
+final class SendNotificationController extends AbstractController
 {
-    private WebPush $webpushService;
-
-    public function __construct(WebPush $webpushService)
-    {
-        $this->webpushService = $webpushService;
+    public function __construct(
+        private readonly WebPush $webpushService
+    ) {
     }
 
-
-    /**
-     * @Route(path="/notify", name="app_notify")
-     */
+    #[Route(path: '/notify', name: 'app_notify')]
     public function __invoke(Request $request): JsonResponse
     {
         $message = Message::create('My super Application', 'Hello World!')
-            //->rtl()
+            ->rtl()
             //->renotify()
             ->vibrate(200, 300, 200, 300)
             ->withImage('https://placebear.com/1024/512')
@@ -48,13 +46,14 @@ final class SendNotificationController
 
         $statusReport = $this->webpushService->send($notification, $subscription);
 
-        return new JsonResponse([
-            'error' => !$statusReport->isSuccess(),
-            'links' => $statusReport->getLinks(),
-            'location' => $statusReport->getLocation(),
-            'expired' => $statusReport->isSubscriptionExpired(),
-        ],
-            $statusReport->isSuccess() ? 200: 400,
+        return new JsonResponse(
+            [
+                'error' => ! $statusReport->isSuccess(),
+                'links' => $statusReport->getLinks(),
+                'location' => $statusReport->getLocation(),
+                'expired' => $statusReport->isSubscriptionExpired(),
+            ],
+            $statusReport->isSuccess() ? 200 : 400,
         );
     }
 }
