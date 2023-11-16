@@ -96,9 +96,6 @@ return static function (ECSConfig $config): void {
         ]
     );
 
-    $config->services()
-        ->remove(PhpUnitTestClassRequiresCoversFixer::class);
-
     $config->parallel();
     $config->paths([__DIR__]);
     $config->skip([
@@ -109,6 +106,7 @@ return static function (ECSConfig $config): void {
         __DIR__ . '/heroku',
         __DIR__ . '/public',
         __DIR__ . '/var',
+        PhpUnitTestClassRequiresCoversFixer::class,
     ])
     ;
 };

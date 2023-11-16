@@ -29,7 +29,7 @@
         "symfony/string": "^6.3|^7.0",
         "symfony/twig-bundle": "^6.2",
         "symfony/web-link": "^6.3|^7.0",
-        "symfony/webpack-encore-bundle": "^1.13",
+        "symfony/webpack-encore-bundle": "^2.0",
         "symfony/yaml": "^6.3|^7.0",
         "twig/twig": "^2.12|^3.0",
         "web-token/jwt-signature-algorithm-ecdsa": "^3.0"
@@ -82,11 +82,11 @@
         }
     },
     "require-dev": {
-        "rector/rector": "^0.15.2",
+        "rector/rector": "^0.18",
         "roave/security-advisories": "dev-latest",
         "symfony/debug-bundle": "^6.3|^7.0",
         "symfony/stopwatch": "^6.3|^7.0",
         "symfony/web-profiler-bundle": "^6.3|^7.0",
-        "symplify/easy-coding-standard": "^11.1"
+        "symplify/easy-coding-standard": "^12.0"
     }
 }

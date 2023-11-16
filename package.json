@@ -10,7 +10,7 @@
         "bootstrap-star-rating": "^4.1.2",
         "core-js": "^3.23.0",
         "jquery": "^3.6.0",
-        "regenerator-runtime": "^0.13.9",
+        "regenerator-runtime": "^0.14",
         "sass": "^1.43.4",
         "sass-loader": "^13.0.0",
         "stimulus": "^3.0.0",
@@ -28,7 +28,7 @@
     },
     "dependencies": {},
     "engines": {
-        "node": "^19.0",
+        "node": "^20.0",
         "npm": "^9.0",
         "yarn": "^1.22"
     }
